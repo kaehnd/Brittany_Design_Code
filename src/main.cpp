@@ -36,7 +36,7 @@ void loop(void) {
     bmi088.getGyroscope(&gx, &gy, &gz); //Get the gyroscope values
     //temp = bmi088.getTemperature(); //Get the temperature value
 
-    run_tests();
+    // run_tests();
 
 
     if (ay >= TRIGGER_ACCELERATION || gx >= TRIGGER_GyroscopeHigh || gx <= TRIGGER_GyroscopeLow){ //Determine if any of the conditions are exceeded
@@ -53,41 +53,41 @@ void loop(void) {
     delay(50);
 }
 
-void acceleration_test(){
-  ay = 100; // set the acceleration to be above the release level
-  if(ReleasePin == 1){
-    Serial.print("The pin is released"); //Confirm the pin is released
-    digitalWrite(ButtonPin,LOW); //Simulate button press
-    if(ReleasePin == 0){
-      Serial.print("The code is reset"); //Confirm the code is reset
-    }
-  }
-}
+// void acceleration_test(){
+//   ay = 100; // set the acceleration to be above the release level
+//   if(ReleasePin == 1){
+//     Serial.print("The pin is released"); //Confirm the pin is released
+//     digitalWrite(ButtonPin,LOW); //Simulate button press
+//     if(ReleasePin == 0){
+//       Serial.print("The code is reset"); //Confirm the code is reset
+//     }
+//   }
+// }
 
-void low_gyro_test(){
-  gy = -100; //Set the gyroscope angle above the minimum allowable angle
-  if(ReleasePin ==1){
-    Serial.print("The pin is released"); //Confirm the pin is released
-    digitalWrite(ButtonPin,LOW); //simulate the button press
-    if(ReleasePin == 0){
-      Serial.print("The code is reset"); //Confirm the code is reset
-    }
-  }
-}
+// void low_gyro_test(){
+//   gy = -100; //Set the gyroscope angle above the minimum allowable angle
+//   if(ReleasePin ==1){
+//     Serial.print("The pin is released"); //Confirm the pin is released
+//     digitalWrite(ButtonPin,LOW); //simulate the button press
+//     if(ReleasePin == 0){
+//       Serial.print("The code is reset"); //Confirm the code is reset
+//     }
+//   }
+// }
 
-void high_gyro_test(){
-  gy = 100; //Set the gyroscope angle above the maximum allowable angle
-  if(ReleasePin ==1){
-    Serial.print("The pin is released"); //Confirm the pin is released
-    digitalWrite(ButtonPin,LOW); //simulate the button press
-    if(ReleasePin == 0){
-      Serial.print("The code is reset"); //Confirm the code is reset
-    }
-  }
-}
+// void high_gyro_test(){
+//   gy = 100; //Set the gyroscope angle above the maximum allowable angle
+//   if(ReleasePin ==1){
+//     Serial.print("The pin is released"); //Confirm the pin is released
+//     digitalWrite(ButtonPin,LOW); //simulate the button press
+//     if(ReleasePin == 0){
+//       Serial.print("The code is reset"); //Confirm the code is reset
+//     }
+//   }
+// }
 
-void run_tests(){
-  acceleration_test();
-  low_gyro_test();
-  high_gyro_test();
-}
+// void run_tests(){
+//   acceleration_test();
+//   low_gyro_test();
+//   high_gyro_test();
+// }

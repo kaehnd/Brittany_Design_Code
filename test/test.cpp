@@ -1,4 +1,4 @@
-#include <ArduinoFake>
+#include <Arduino.h>
 #include <unity.h>
 
 using namespace fakeit;
@@ -7,7 +7,7 @@ void test_setup(void)
 {
     When(Method(ArduinoFake(), pinMode)).Return();
 
-    setup();
+   setup();
 
     Verify(Method(ArduinoFake(), pinMode).Using(LED_BUILTIN, OUTPUT)).Once();
 }
@@ -17,7 +17,7 @@ void test_loop(void)
     When(Method(ArduinoFake(), digitalWrite)).AlwaysReturn();
     When(Method(ArduinoFake(), delay)).AlwaysReturn();
 
-    loop();
+   loop();
 
     Verify(Method(ArduinoFake(), digitalWrite).Using(LED_BUILTIN, HIGH)).Once();
     Verify(Method(ArduinoFake(), digitalWrite).Using(LED_BUILTIN, LOW)).Once();

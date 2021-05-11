@@ -30,9 +30,13 @@
 #ifndef __BOSCH_BMI088_H__
 #define __BOSCH_BMI088_H__
 
-#include <Arduino.h>
-#include <Wire.h>
-
+#ifdef UNIT_TEST
+    #include <ArduinoFake.h>
+    #include <Wire.h>
+#else 
+    #include <Arduino.h>
+    #include <Wire.h>
+#endif
 #define BMI088_ACC_ADDRESS          0x19
 
 #define BMI088_ACC_CHIP_ID          0x00 // Default value 0x1E
